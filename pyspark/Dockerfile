@@ -1,4 +1,5 @@
-FROM jupyter-6za
+FROM 6zar/jupyter
+# FROM jupyter-6za
 ENV APACHE_SPARK_VERSION 2.4.4
 ENV HADOOP_VERSION 2.7
 

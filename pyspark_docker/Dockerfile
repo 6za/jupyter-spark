@@ -1,4 +1,4 @@
-FROM pyspark-6za
+FROM 6zar/pyspark
 # Source: https://docs.docker.com/install/linux/docker-ce/ubuntu/
 RUN apt-get update
 RUN apt-get install -y  apt-transport-https ca-certificates curl gnupg-agent software-properties-common
