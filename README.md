@@ -1,13 +1,8 @@
 # jupyter-spark
 
 
-```bash 
-docker build ./jupyter -t jupyter-6za
-docker build ./pyspark -t pyspark-6za
+Sample of use: [https://github.com/6za/runbooks-jupyter/blob/master/01-SimpleDockerTest.ipynb](https://github.com/6za/runbooks-jupyter/blob/master/01-SimpleDockerTest.ipynb)
 
-docker build ./pyspark_docker -t pyspark-docker-6za
-docker run -p 0.0.0.0:8888:8888 -i -t pyspark-docker 
-```
 
 # Notes
 - address `tzdata`
