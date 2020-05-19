@@ -21,5 +21,6 @@ RUN ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
 # Adding some flavor to the notebooks
 RUN pip install jupyterthemes
 RUN pip install jupyter_contrib_nbextensions && jupyter contrib nbextension install
+RUN pip install pika
 RUN jt -t onedork -f roboto -fs 10 -nf ptsans -nfs 10 -cellw 95% -tfs 10 -cursc g -cursw 5 -T -N -kl
 CMD cd /root && jupyter notebook  --ip=0.0.0.0 --allow-root
