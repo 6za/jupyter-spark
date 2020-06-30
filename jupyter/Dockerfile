@@ -1,4 +1,4 @@
-FROM ubuntu:bionic-20190612@sha256:9b1702dcfe32c873a770a32cfd306dd7fc1c4fd134adfb783db68defc8894b3c
+FROM ubuntu:18.04
 # Install all OS dependencies for fully functional notebook server
 RUN export DEBIAN_FRONTEND=noninteractive
 ENV TZ America/New_York
