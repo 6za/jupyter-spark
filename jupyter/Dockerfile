@@ -43,18 +43,18 @@ RUN apt-get update && apt-get install -yq --no-install-recommends \
 RUN python3 -m pip install --upgrade pip
 RUN pip3  install --upgrade setuptools
 RUN pip3 install wheel
-RUN pip3 install jupyterlab      
-RUN pip3 install jupyter
-RUN pip3 install h5py
-RUN pip3 install matplotlib
+# RUN pip3 install jupyterlab      
+# RUN pip3 install jupyter
+# RUN pip3 install h5py
+# RUN pip3 install matplotlib
 # RUN pip3 install scipy-image
 # Not working for pip3
-RUN pip3 install SQLAlchemy
-RUN pip3 install spylon-kernel
-RUN cd /tmp && \
-    git clone https://github.com/PAIR-code/facets.git && \
-    cd facets && \
-    jupyter nbextension install facets-dist/ --sys-prefix && \
-    cd && \
-    rm -rf /tmp/facets
+# RUN pip3 install SQLAlchemy
+# RUN pip3 install spylon-kernel
+# RUN cd /tmp && \
+#     git clone https://github.com/PAIR-code/facets.git && \
+#     cd facets && \
+#     jupyter nbextension install facets-dist/ --sys-prefix && \
+#     cd && \
+#    rm -rf /tmp/facets
 # SERVER: jupyter notebook  --ip=0.0.0.0 --allow-root
