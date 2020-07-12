@@ -61,7 +61,7 @@ RUN apt-get update && apt-get install -yq --no-install-recommends \
     curl \
     python3.6 \
     python3-pip \
-    python3-h5py \
+    python3-h5py python3-matplotlib \
     gcc libffi-dev libssl-dev python3-dev \
     && rm -rf /var/lib/apt/lists/*    
 RUN python3 -m pip install --upgrade pip
