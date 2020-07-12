@@ -38,7 +38,7 @@ RUN wget https://github.com/jedisct1/libsodium/releases/download/1.0.3/libsodium
     && ./configure \
     && make \
     && make install && cd ..
-run wget https://github.com/zeromq/libzmq/releases/download/v4.3.2/zeromq-4.3.2.tar.gz \
+RUN wget https://github.com/zeromq/libzmq/releases/download/v4.3.2/zeromq-4.3.2.tar.gz \
     && tar -zxvf zeromq-4.3.2.tar.gz \
     && cd zeromq-4.3.2/ \
     && ./configure \
