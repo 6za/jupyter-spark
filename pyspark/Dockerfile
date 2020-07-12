@@ -1,6 +1,6 @@
 FROM 6zar/jupyter
 # FROM jupyter-6za
-ENV APACHE_SPARK_VERSION 2.4.4
+ENV APACHE_SPARK_VERSION 2.4.6
 ENV HADOOP_VERSION 2.7
 
 RUN apt-get -y update && \
