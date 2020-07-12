@@ -61,9 +61,11 @@ RUN apt-get update && apt-get install -yq --no-install-recommends \
     curl \
     python3.6 \
     python3-pip \
+    gcc libffi-dev libssl-dev python3-dev \
     && rm -rf /var/lib/apt/lists/*    
 RUN python3 -m pip install --upgrade pip
 RUN pip3  install --upgrade setuptools
+RUN pip3 install pyzmq
 RUN pip3 install wheel
 RUN pip3 install jupyterlab      
 RUN pip3 install jupyter
