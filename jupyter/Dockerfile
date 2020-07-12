@@ -16,7 +16,7 @@ RUN apt-get update && apt-get install -yq --no-install-recommends \
     libxrender1 \
     lmodern \
     netcat \
-    wget \
+    wget ca-certificates\
     curl \
     pandoc \
     python-dev \
