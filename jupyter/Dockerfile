@@ -16,6 +16,8 @@ RUN apt-get update && apt-get install -yq --no-install-recommends \
     libxrender1 \
     lmodern \
     netcat \
+    wget \
+    curl \
     pandoc \
     python-dev \
     texlive-fonts-extra \
@@ -24,10 +26,18 @@ RUN apt-get update && apt-get install -yq --no-install-recommends \
     texlive-latex-base \
     texlive-latex-extra \
     texlive-xetex \
+    libtool pkg-config autoconf automake \
     tzdata \
     unzip \
     nano \
     && rm -rf /var/lib/apt/lists/*
+#https://github.com/MonsieurV/ZeroMQ-RPi    
+RUN wget https://github.com/jedisct1/libsodium/releases/download/1.0.3/libsodium-1.0.3.tar.gz \
+    && tar -zxvf libsodium-1.0.3.tar.gz \
+    && cd libsodium-1.0.3/ \
+    && ./configure \
+    && make \
+    && make install && cd ..
 RUN apt-get update && apt-get install -yq --no-install-recommends \
     tzdata \
     && rm -rf /var/lib/apt/lists/*    
