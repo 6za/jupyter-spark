@@ -1,4 +1,4 @@
-FROM ubuntu:bionic-20190612@sha256:9b1702dcfe32c873a770a32cfd306dd7fc1c4fd134adfb783db68defc8894b3c
+FROM ubuntu:bionic
 # Install all OS dependencies for fully functional notebook server
 RUN export DEBIAN_FRONTEND=noninteractive
 ENV TZ America/New_York
@@ -31,6 +31,11 @@ RUN apt-get update && apt-get install -yq --no-install-recommends \
     unzip \
     nano \
     && rm -rf /var/lib/apt/lists/*
+RUN mkdir /usr/local/share/ca-certificates/cacert.org \
+    && cd  /usr/local/share/ca-certificates/cacert.org \
+    && wget -P /usr/local/share/ca-certificates/cacert.org http://www.cacert.org/certs/root.crt http://www.cacert.org/certs/class3.crt \
+    && update-ca-certificates
+    
 #https://github.com/MonsieurV/ZeroMQ-RPi    
 RUN wget https://github.com/jedisct1/libsodium/releases/download/1.0.3/libsodium-1.0.3.tar.gz \
     && tar -zxvf libsodium-1.0.3.tar.gz \
