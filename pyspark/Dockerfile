@@ -20,7 +20,7 @@ ENV PYTHONPATH $SPARK_HOME/python:$SPARK_HOME/python/lib/py4j-0.10.7-src.zip
 ENV SPARK_OPTS --driver-java-options=-Xms1024M --driver-java-options=-Xmx4096M --driver-java-options=-Dlog4j.logLevel=info
 
 RUN pip3 install --no-cache-dir \
-    https://dist.apache.org/repos/dist/release/incubator/toree/0.3.0-incubating/toree-pip/toree-0.3.0.tar.gz \
+    https://dist.apache.org/repos/dist/release/incubator/toree/0.4.0-incubating/toree-pip/toree-0.4.0.tar.gz \
     && \
     jupyter toree install --sys-prefix && \
     rm -rf /root/.local 
