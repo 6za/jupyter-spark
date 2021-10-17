@@ -4,6 +4,7 @@ FROM $SOURCE_IMAGE
 ENV APACHE_SPARK_VERSION 3.1.2
 ENV HADOOP_VERSION 3.2
 ENV openjdk_version 11
+ENV py4j_version 0.10.9
 
 RUN apt-get -y update && \
     apt-get install --no-install-recommends -y openjdk-${openjdk_version}-jre-headless ca-certificates-java wget && \
@@ -18,7 +19,7 @@ RUN cd /usr/local && ln -s spark-${APACHE_SPARK_VERSION}-bin-hadoop${HADOOP_VERS
 
 # Spark and Mesos config
 ENV SPARK_HOME /usr/local/spark
-ENV PYTHONPATH $SPARK_HOME/python:$SPARK_HOME/python/lib/py4j-0.10.7-src.zip
+ENV PYTHONPATH $SPARK_HOME/python:$SPARK_HOME/python/lib/py4j-$py4j_version-src.zip
 ENV SPARK_OPTS --driver-java-options=-Xms1024M --driver-java-options=-Xmx4096M --driver-java-options=-Dlog4j.logLevel=info
 
 RUN pip3 install --no-cache-dir \
