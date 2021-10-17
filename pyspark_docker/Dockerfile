@@ -1,4 +1,5 @@
-FROM 6zar/pyspark
+ARG SOURCE_IMAGE=base_pyspark
+FROM $SOURCE_IMAGE
 # Source: https://docs.docker.com/install/linux/docker-ce/ubuntu/
 RUN apt-get update
 RUN apt-get update && apt-get install -y  apt-transport-https \
