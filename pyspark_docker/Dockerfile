@@ -26,4 +26,6 @@ RUN pip install pika
 # Missing some libs
 # RUN pip install jupyter_contrib_nbextensions && jupyter contrib nbextension install
 #RUN jt -t onedork -f roboto -fs 10 -nf ptsans -nfs 10 -cellw 95% -tfs 10 -cursc g -cursw 5 -T -N -kl
+ENV PYSPARK_PYTHON=/usr/bin/python3
+ENV PYSPARK_DRIVER_PYTHON=ipython3
 CMD cd /root && jupyter notebook  --ip=0.0.0.0 --allow-root
