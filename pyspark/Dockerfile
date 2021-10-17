@@ -1,16 +1,17 @@
 ARG SOURCE_IMAGE=base_pyspark
 FROM $SOURCE_IMAGE
 # FROM jupyter-6za
-ENV APACHE_SPARK_VERSION 2.4.8
-ENV HADOOP_VERSION 2.7
+ENV APACHE_SPARK_VERSION 3.1.2
+ENV HADOOP_VERSION 3.2
+ENV openjdk_version 11
 
 RUN apt-get -y update && \
-    apt-get install --no-install-recommends -y openjdk-8-jre-headless ca-certificates-java wget && \
+    apt-get install --no-install-recommends -y openjdk-${openjdk_version}-jre-headless ca-certificates-java wget && \
     rm -rf /var/lib/apt/lists/*
 
 RUN cd /tmp && \
-    wget -q http://mirrors.ukfast.co.uk/sites/ftp.apache.org/spark/spark-${APACHE_SPARK_VERSION}/spark-${APACHE_SPARK_VERSION}-bin-hadoop${HADOOP_VERSION}.tgz && \
-    echo "752c4d4d8fe1d72f5ba01f40d22df35698585bd17ed4749f6065b0039ff40db7ff8ea87dc0fb5b1ec03871e427a002581ec12f486392b92b88643d4243908e55 *spark-${APACHE_SPARK_VERSION}-bin-hadoop${HADOOP_VERSION}.tgz" | sha512sum -c - && \
+    wget -q "https://archive.apache.org/dist/spark/spark-${APACHE_SPARK_VERSION}/spark-${APACHE_SPARK_VERSION}-bin-hadoop${HADOOP_VERSION}.tgz" && \
+    echo "2385CB772F21B014CE2ABD6B8F5E815721580D6E8BC42A26D70BBCDDA8D303D886A6F12B36D40F6971B5547B70FAE62B5A96146F0421CB93D4E51491308EF5D5 *spark-${APACHE_SPARK_VERSION}-bin-hadoop${HADOOP_VERSION}.tgz" | sha512sum -c - && \
     tar xzf spark-${APACHE_SPARK_VERSION}-bin-hadoop${HADOOP_VERSION}.tgz -C /usr/local --owner root --group root --no-same-owner && \
     rm spark-${APACHE_SPARK_VERSION}-bin-hadoop${HADOOP_VERSION}.tgz
 RUN cd /usr/local && ln -s spark-${APACHE_SPARK_VERSION}-bin-hadoop${HADOOP_VERSION} spark
