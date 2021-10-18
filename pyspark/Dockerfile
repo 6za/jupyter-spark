@@ -1,9 +1,10 @@
 ARG SOURCE_IMAGE=base_pyspark
+ARG JAVA_VERSION=11
 FROM $SOURCE_IMAGE
 # FROM jupyter-6za
 ENV APACHE_SPARK_VERSION 3.1.2
 ENV HADOOP_VERSION 3.2
-ENV openjdk_version 11
+ENV openjdk_version $JAVA_VERSION
 ENV py4j_version 0.10.9
 
 RUN apt-get -y update && \
