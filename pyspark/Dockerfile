@@ -10,7 +10,7 @@ ENV py4j_version 0.10.9
 RUN echo "java: $JAVA_VERSION"
 
 RUN apt-get -y update && \
-    apt-get install --no-install-recommends -y openjdk-${JAVA_VERSION}-jre-headless ca-certificates-java wget && \
+    apt-get install --no-install-recommends -y openjdk-$JAVA_VERSION-jre-headless ca-certificates-java wget && \
     rm -rf /var/lib/apt/lists/*
 
 RUN cd /tmp && \
