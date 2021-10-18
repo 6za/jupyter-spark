@@ -7,7 +7,7 @@ ENV HADOOP_VERSION 3.2
 ENV openjdk_version $JAVA_VERSION
 ENV py4j_version 0.10.9
 
-RUN echo {JAVA_VERSION}
+RUN echo ${JAVA_VERSION}
 
 RUN apt-get -y update && \
     apt-get install --no-install-recommends -y openjdk-${JAVA_VERSION}-jre-headless ca-certificates-java wget && \
